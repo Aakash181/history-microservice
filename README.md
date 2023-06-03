@@ -11,33 +11,29 @@ The History Microservice is a Node.js application that records the username, vid
 
 1. Clone the repository:
 
-   \`\`\`
+   ```bash
    git clone https://github.com/your-username/history-microservice.git
-   \`\`\`
 
 2. Navigate to the project directory:
 
-   \`\`\`
+   ```bash
    cd history-microservice
-   \`\`\`
-
+   
 3. Install the dependencies:
-
-   \`\`\`
+   ```bash
    npm install
-   \`\`\`
 
 4. Set the environment variables:
+   ```bash
    - DBHOST: Specify the database host where MongoDB is running.
    - DBNAME: Specify the name of the MongoDB database.
 
 5. Start the microservice:
 
-   \`\`\`
+   ```bash
    npm start
-   \`\`\`
 
-   The microservice will start running on the specified port (default: 30010).
+  The microservice will start running on the specified port (default: 30010).
 
 ## API Endpoints
 
@@ -47,12 +43,11 @@ Adds a video to the history collection.
 
 #### Request Body
 
-\`\`\`
-{
-  "videoPath": "madhuban.mp4",
-  "username": "Aakash"
-}
-\`\`\`
+    ```bash
+    {
+       "videoPath": "madhuban.mp4",
+        "username": "Aakash"
+    }
 
 #### Response
 
