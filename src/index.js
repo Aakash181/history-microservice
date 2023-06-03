@@ -31,9 +31,14 @@ function setupHandlers(app, db) {
     const videosCollection = db.collection("history");
 
     app.post("/video", (req, res) => { // Handle the "viewed" message via HTTP POST request.
-        const videoPath = req.body.videoPath; // Read JSON body from HTTP request.
+        const { videoPath, username } = req.body; // Read JSON body from HTTP request.
         console.log(`hi we got post request inside /video`);
-        videosCollection.insertOne({ videoPath: videoPath }) // Record the "view" in the database.
+        const videoData = {
+            videoPath: videoPath,
+            username: username,
+            timestamp: new Date() // Use the current timestamp
+        };
+        videosCollection.insertOne(videoData) // Record the "view" in the database.
             .then(() => {
                 console.log(`Added video ${videoPath} to history.`);
                 res.sendStatus(200);
