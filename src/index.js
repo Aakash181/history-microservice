@@ -32,6 +32,7 @@ function setupHandlers(app, db) {
 
     app.post("/video", (req, res) => { // Handle the "viewed" message via HTTP POST request.
         const videoPath = req.body.videoPath; // Read JSON body from HTTP request.
+        console.log(`hi we got post request inside /video`);
         videosCollection.insertOne({ videoPath: videoPath }) // Record the "view" in the database.
             .then(() => {
                 console.log(`Added video ${videoPath} to history.`);
@@ -72,7 +73,7 @@ function startHttpServer(db) {
         app.use(bodyParser.json()); // Enable JSON body for HTTP requests.
         setupHandlers(app, db);
 
-        const port22 = process.env.port22 ||3005 // && parseInt(process.env.PORT) || 3000;
+        const port22 = process.env.port22 ||30010 // && parseInt(process.env.PORT) || 3000;
         app.listen(port22, () => {
             resolve(); // HTTP server is listening, resolve the promise.
         });
